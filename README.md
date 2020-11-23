@@ -1,6 +1,3 @@
-
-----
-
 # 开箱 在C++中使用Detectron2的Mask R-CNN
 
 # AI开箱
@@ -12,7 +9,7 @@
 # 视频
 
 - 为保障项目复现，本视频在虚拟机下录制，系统: ubuntu-18.04.5-desktop-amd64.iso
-- 虚拟机磁盘空间，包含系统文件预计使用21G，建议分配30-40G
+- 虚拟机磁盘空间，建议分配40G
 
 bilibili
 
@@ -73,10 +70,10 @@ bilibili
     
         ```
         下载 http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run
-        sudo sh cuda_10.1.243_418.87.00_linux.run
+        sudo bash cuda_10.1.243_418.87.00_linux.run
 
         下载 https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.0.5/10.1_20201106/cudnn-10.1-linux-x64-v8.0.5.39.tgz
-        解压，将include目录和lib64目录下的文件拷贝至cuda安装目录
+        解压，将include目录和lib64目录下的文件拷贝至cuda对应目录
         ```
 
     3. 安装 torch==1.6.0+cu101
@@ -174,43 +171,213 @@ python caffe2_converter.py
 1. 编译
 
     安装cmake
-    ```    
+    ```
     sudo apt install cmake
     mkdir build && cd build
     cmake .. & make
     ```
    
 2. 运行
+
     ```
     ./caffe2_mask_rcnn
     ```
    
 # 官方资料
 
-https://github.com/facebookresearch/detectron2/tree/master/tools/deploy
+- https://github.com/facebookresearch/detectron2/tree/master/tools/deploy
+- https://detectron2.readthedocs.io/tutorials/deployment.html
 
-https://detectron2.readthedocs.io/tutorials/deployment.html
-
-
-----
+---
 
 # unbox, use Mask R-CNN of detectron2 in C++
 
 # Unbox AI
 
-
 ### welcome to subscribe my channel
 - [youtube channel](https://youtube.com/channel/UCAebg3DDFtidQJ0Jp20kyaw)
 - [bilibili channel](https://space.bilibili.com/326361150)
 
+# Video
 
-https://github.com/facebookresearch/detectron2/tree/master/tools/deploy
+- 为保障项目复现，本视频在虚拟机下录制，系统: ubuntu-18.04.5-desktop-amd64.iso
+- 虚拟机磁盘空间，建议分配40G
 
-https://detectron2.readthedocs.io/tutorials/deployment.html
+youtube
 
 
-model_0124999.pth
+# System Requirements
 
-334.8 MB
+- ubuntu 18.04
+- python 3.6
+- cuda 10.1
+- cudnn 8.0.5
 
-download : https://drive.google.com/file/d/1SLs-dCHibUMJY0dgcbkAb82h-Yxm6gAs/view?usp=sharing
+
+# Chapter 1: Convert to Caffe2 Model
+
+## Python Environment configuration
+
+1. download source code
+
+    install git
+    ```
+    sudo apt install git
+    ```
+    clone source code to unbox_cpp_caffe2 folder
+    ```
+    git clone https://github.com/dyh/unbox_use_detectron2_model_in_cpp_of_caffe2.git unbox_cpp_caffe2
+    ```
+   
+2. enter the python project folder
+    ```
+    cd unbox_cpp_caffe2/python_project/
+    ```
+   
+3. create the virtual environment
+    ```
+    sudo apt install python3-venv
+    python3 -m venv venv
+    ```
+
+4. activate virtual environment
+   ```
+   source venv/bin/activate
+   ```
+
+5. upgrade pip
+
+   ```
+   python -m pip install --upgrade pip
+   ```
+
+6. install software packages
+
+    1. install gcc
+        ```
+        sudo apt install gcc
+        ```
+
+    2. install CUDA and CUDNN
+    
+        ```
+        download file: http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run
+        sudo bash cuda_10.1.243_418.87.00_linux.run
+
+        download file: https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.0.5/10.1_20201106/cudnn-10.1-linux-x64-v8.0.5.39.tgz
+        解压，将include目录和lib64目录下的文件拷贝至 /usr/local/cuda 对应目录
+        unzip files, copy the files of include and lib64 to /usr/local/cuda/include and /usr/local/cuda/lib64 folder
+        ```
+
+    3. install torch==1.6.0+cu101
+    
+        ```
+        pip install torch==1.6.0+cu101 torchvision==0.7.0+cu101 -f https://download.pytorch.org/whl/torch_stable.html
+        ```
+    
+    4. install detectron2==0.3+cu101
+    
+        ```
+        sudo apt install python3.6-dev
+        python -m pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu101/torch1.6/index.html
+        ```
+       
+    5. install other software packages
+
+        ```
+        sudo apt-get install graphviz
+        pip install opencv-python==4.4.0.46
+        pip install onnx==1.8.0
+        pip install protobuf==3.14.0
+        ```
+
+7. download pre-trained weights file of Mask R-CNN
+    > model_0124999.pth, 334.8MB, in my last video, this is a weights file that uses Mask R-CNN to detect tunnel fissure, including 2 categories: fissure and water
+
+    - download link 1: https://drive.google.com/file/d/1SLs-dCHibUMJY0dgcbkAb82h-Yxm6gAs/view?usp=sharing
+    - download link 2: https://pan.baidu.com/s/1BqUTgciTeDxng21dYcMlag password: puaq
+    - make the directory structure as ./python_project/weights/model_0124999.pth
+
+8. About sample images and annotation files
+
+    > The python_project/images/train directory already contains sample images and annotation files. You can refer to this video about Mask R-CNN annotation:
+
+    - [youtube](https://www.youtube.com/watch?v=u4YpOLUxE9E)
+    - [bilibili](https://www.bilibili.com/video/BV1DT4y1F7yG)
+
+
+## Run Python program to convert the model file & weights file
+
+```
+python caffe2_converter.py
+```
+
+when the program runs successfully, model.pb and model_init.pb files are generated in the python_project/output directory
+
+# Chapter 2: Use C++ to load weights file
+
+
+## C++ Environment Configuration
+
+1. enter the C++ project folder
+
+    ```
+    cd ../cpp_project/
+    ```
+
+2. install dependency packages
+
+    ```
+    sudo apt install libgflags-dev libgoogle-glog-dev libopencv-dev
+    pip install mkl-include
+    ```
+
+3. install protobuf
+
+    ```
+    download file: https://github.com/protocolbuffers/protobuf/releases/download/v3.11.4/protobuf-cpp-3.11.4.tar.gz
+    tar xf protobuf-cpp-3.11.4.tar.gz
+    cd protobuf-3.11.4
+    export CXXFLAGS=-D_GLIBCXX_USE_CXX11_ABI=$(python3 -c 'import torch; print(int(torch.compiled_with_cxx11_abi()))')
+    ./configure --prefix=$HOME/.local && make && make install
+    ```
+
+4. configure the CMakeLists.txt
+
+    > return to the cpp_project directory and modify the contents of the CMakeLists.txt file
+
+    1. configure pytorch path
+        ```
+        change path: 
+        set(CMAKE_PREFIX_PATH $ENV{HOME}/workspace/unbox/unbox_cpp_caffe2/python_project/venv/lib64/python3.6/site-packages/torch) 
+        Point to the pytorch installation directory in the python virtual environment
+        ```
+    
+    2. configure protobuf path
+        ```
+        export CPATH=$HOME/.local/include
+        export LIBRARY_PATH=$HOME/.local/lib
+        export LD_LIBRARY_PATH=$HOME/.local/lib
+        ```
+
+## Run C++ Program to Detect Images
+
+1. compile
+
+    install cmake
+    ```
+    sudo apt install cmake
+    mkdir build && cd build
+    cmake .. & make
+    ```
+   
+2. run
+
+    ```
+    ./caffe2_mask_rcnn
+    ```
+   
+# Official Reference
+
+- https://github.com/facebookresearch/detectron2/tree/master/tools/deploy
+- https://detectron2.readthedocs.io/tutorials/deployment.html
