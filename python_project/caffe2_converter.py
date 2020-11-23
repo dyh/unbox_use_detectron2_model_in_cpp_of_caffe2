@@ -80,7 +80,9 @@ def get_dataset_dicts_from_via_file(img_dir, json_file_name):
 if __name__ == "__main__":
     # pip install torch==1.6.0+cu101 torchvision==0.7.0+cu101 -f https://download.pytorch.org/whl/torch_stable.html
     # python -m pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu101/torch1.6/index.html
-    # pip install onnx
+    # pip install opencv-python==4.4.0.46
+    # pip install onnx==1.8.0
+    # pip install protobuf==3.14.0
 
     image_root = "images/train"
 

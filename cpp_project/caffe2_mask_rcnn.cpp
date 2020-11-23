@@ -61,6 +61,8 @@ int main() {
     // load and fill the path of files to vector
     getFileNames(folder_path,  filenames);
 
+    auto i = 0;
+
     // loop and detect images
     for (const auto& image_path : filenames) {
         // resize our input images to fit with model
@@ -163,11 +165,15 @@ int main() {
             mat_mask.release();
         }
 
-        imshow("image", mat_input);
-        waitKey(100);
+        imwrite(to_string(i) + ".jpg", mat_input);
+
+        // imshow("image", mat_input);
+        // waitKey(100);
 
         // release the w:800 h:800 image matrix object
         mat_input.release();
+
+        i++;
     }
 
     return 0;
