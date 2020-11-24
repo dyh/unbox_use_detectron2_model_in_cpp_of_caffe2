@@ -1,6 +1,4 @@
-# 开箱 在C++中使用Detectron2的Mask R-CNN
-
-# AI开箱
+# AI开箱 在C++中使用Detectron2的Mask R-CNN
 
 ### 欢迎订阅我的频道
 - [bilibili频道](https://space.bilibili.com/326361150)
@@ -73,7 +71,7 @@ bilibili
         sudo bash cuda_10.1.243_418.87.00_linux.run
 
         下载 https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.0.5/10.1_20201106/cudnn-10.1-linux-x64-v8.0.5.39.tgz
-        解压，将include目录和lib64目录下的文件拷贝至cuda对应目录
+        解压，将include目录和lib64目录下的文件拷贝至 /usr/local/cuda 对应目录
         ```
 
     3. 安装 torch==1.6.0+cu101
@@ -190,9 +188,7 @@ python caffe2_converter.py
 
 ---
 
-# unbox, use Mask R-CNN of detectron2 in C++
-
-# Unbox AI
+# Unbox AI, use Mask R-CNN of detectron2 in C++
 
 ### welcome to subscribe my channel
 - [youtube channel](https://youtube.com/channel/UCAebg3DDFtidQJ0Jp20kyaw)
@@ -265,7 +261,6 @@ youtube
         sudo bash cuda_10.1.243_418.87.00_linux.run
 
         download file: https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.0.5/10.1_20201106/cudnn-10.1-linux-x64-v8.0.5.39.tgz
-        解压，将include目录和lib64目录下的文件拷贝至 /usr/local/cuda 对应目录
         unzip files, copy the files of include and lib64 to /usr/local/cuda/include and /usr/local/cuda/lib64 folder
         ```
 
