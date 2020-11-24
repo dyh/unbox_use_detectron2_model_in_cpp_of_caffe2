@@ -159,9 +159,10 @@ python caffe2_converter.py
     
     2. 配置 protobuf 路径
         ```
-        export CPATH=$HOME/.local/include
-        export LIBRARY_PATH=$HOME/.local/lib
-        export LD_LIBRARY_PATH=$HOME/.local/lib
+        # point to the include folder of protobuf
+        include_directories($ENV{HOME}/.local/include)
+        # point to the lib folder of protobuf
+        link_directories($ENV{HOME}/.local/lib)
         ```
 
 ## 运行 C++ 程序检测图片
@@ -172,7 +173,7 @@ python caffe2_converter.py
     ```
     sudo apt install cmake
     mkdir build && cd build
-    cmake .. & make
+    cmake .. && make
     ```
    
 2. 运行
@@ -350,9 +351,10 @@ when the program runs successfully, model.pb and model_init.pb files are generat
     
     2. configure protobuf path
         ```
-        export CPATH=$HOME/.local/include
-        export LIBRARY_PATH=$HOME/.local/lib
-        export LD_LIBRARY_PATH=$HOME/.local/lib
+        # point to the include folder of protobuf
+        include_directories($ENV{HOME}/.local/include)
+        # point to the lib folder of protobuf
+        link_directories($ENV{HOME}/.local/lib)
         ```
 
 ## Run C++ Program to Detect Images
@@ -363,7 +365,7 @@ when the program runs successfully, model.pb and model_init.pb files are generat
     ```
     sudo apt install cmake
     mkdir build && cd build
-    cmake .. & make
+    cmake .. && make
     ```
    
 2. run
