@@ -169,6 +169,8 @@ python caffe2_converter.py
 
 1. 编译
 
+    > 回到 cpp_project 目录
+
     安装cmake
     ```
     sudo apt install cmake
@@ -361,6 +363,8 @@ when the program runs successfully, model.pb and model_init.pb files are generat
 
 1. compile
 
+    > return to the cpp_project directory
+    
     install cmake
     ```
     sudo apt install cmake
