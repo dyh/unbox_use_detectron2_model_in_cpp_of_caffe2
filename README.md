@@ -183,7 +183,7 @@ python caffe2_converter.py
     ./caffe2_mask_rcnn
     ```
    
-# 官方资料
+# 官方参考
 
 - https://github.com/facebookresearch/detectron2/tree/master/tools/deploy
 - https://detectron2.readthedocs.io/tutorials/deployment.html
