@@ -141,9 +141,9 @@ if __name__ == "__main__":
     caffe2_model.save_protobuf(output_dir)
 
     # draw the caffe2 graph
-    caffe2_model.save_graph(os.path.join(output_dir, "model.svg"), inputs=first_batch)
-    data_loader = build_detection_test_loader(cfg, dataset_train_name)
+    # caffe2_model.save_graph(os.path.join(output_dir, "model.svg"), inputs=first_batch)
 
+    data_loader = build_detection_test_loader(cfg, dataset_train_name)
     # NOTE: hard-coded evaluator. change to the evaluator for your dataset
     # evaluator = COCOEvaluator(dataset_name, output_dir=output_dir)
     evaluator = COCOEvaluator(dataset_train_name, cfg, True, output_dir)
