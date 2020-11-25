@@ -205,9 +205,9 @@ python caffe2_converter.py
 - it is recommended to allocate 40G disk space of virtual machine
 
 
-bilibili
+youtube
 
-[![bilibili](https://github.com/dyh/unbox_use_detectron2_model_in_cpp_of_caffe2/blob/main/cover.png?raw=true)](https://www.bilibili.com/video/BV1Lz4y1k7iv/ "bilibili")
+[![youtube](https://github.com/dyh/unbox_use_detectron2_model_in_cpp_of_caffe2/blob/main/cover.png?raw=true)](https://www.youtube.com/watch?v=RovekOZL05o "youtube")
 
 
 # System Requirements
