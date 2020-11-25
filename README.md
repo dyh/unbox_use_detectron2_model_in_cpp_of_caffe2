@@ -1,4 +1,4 @@
-# AI开箱 在C++中使用Detectron2的Mask R-CNN
+# AI开箱 C++调用Detectron2的Mask R-CNN
 
 ### 欢迎订阅我的频道
 - [bilibili频道](https://space.bilibili.com/326361150)
@@ -10,6 +10,8 @@
 - 虚拟机磁盘空间，建议分配40G
 
 bilibili
+
+[![bilibili](https://github.com/dyh/unbox_use_detectron2_model_in_cpp_of_caffe2/blob/main/cover.png?raw=true)](https://www.bilibili.com/video/BV1Lz4y1k7iv/ "bilibili")
 
 
 # 系统需求
@@ -104,7 +106,7 @@ bilibili
 
 8. 关于训练图片和标注文件
 
-    > python_project/images/train 目录中已经包含训练图片和标注文件，关于 Mask R-CNN 如何标注可以参考这个视频：
+    > python_project/images/train 目录中已经包含训练图片和标注文件，关于如何制作这个JSON标注文件，请参考这个视频：
 
     - [bilibili](https://www.bilibili.com/video/BV1DT4y1F7yG)
     - [youtube](https://www.youtube.com/watch?v=u4YpOLUxE9E)
@@ -199,10 +201,13 @@ python caffe2_converter.py
 
 # Video
 
-- 为保障项目复现，本视频在虚拟机下录制，系统: ubuntu-18.04.5-desktop-amd64.iso
-- 虚拟机磁盘空间，建议分配40G
+- this video is recorded under the virtual machine (ubuntu-18.04.5-desktop-amd64.iso) to ensure the recurrence of the project
+- it is recommended to allocate 40G disk space of virtual machine
 
-youtube
+
+bilibili
+
+[![bilibili](https://github.com/dyh/unbox_use_detectron2_model_in_cpp_of_caffe2/blob/main/cover.png?raw=true)](https://www.bilibili.com/video/BV1Lz4y1k7iv/ "bilibili")
 
 
 # System Requirements
@@ -298,7 +303,7 @@ youtube
 
 8. About sample images and annotation files
 
-    > The python_project/images/train directory already contains sample images and annotation files. You can refer to this video about Mask R-CNN annotation:
+    > The python_project/images/train directory already contains sample images and annotation files. You can refer to this video on how to make this annotation JSON file:
 
     - [youtube](https://www.youtube.com/watch?v=u4YpOLUxE9E)
     - [bilibili](https://www.bilibili.com/video/BV1DT4y1F7yG)
